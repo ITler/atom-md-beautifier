@@ -1,8 +1,9 @@
 ## About
-This tool collection allows modifying of HTML exported markdown files written in [github flavored markdown](https://help.github.com/articles/github-flavored-markdown/).
-The supported workflow is saving the markdown's HTML representation from [Atom](https://atom.io)'s *markdown preview* to a HTML file.
+This tool collection allows modifying of HTML exported markdown files.  
+The supported workflow is saving the markdown's HTML representation from [Atom](https://atom.io)'s *markdown preview* to a HTML file (appending `.html` to the original markdown file name).
 
-Calling `beautify_atom_markdown.sh`
+Calling `beautify_atom_markdown.sh` then
+
 1. changes style implementation of the exported HTML
 2. provide SSH based upload feature to a publishing location
 
