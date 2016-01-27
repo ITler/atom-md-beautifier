@@ -1,0 +1,7 @@
+#!/bin/bash
+
+source $(dirname $0)/beautify_atom_markdown.conf
+
+# Adept to your needs and save to .conf file
+TARGET_CONNECTION=<publishing-user@example.com>
+TARGET_LOCATION_ROOT=</path/to/some/publishing/web-root/>
