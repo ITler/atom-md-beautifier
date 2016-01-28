@@ -20,7 +20,7 @@ if [ -r $DOCS_TO_PUBLISH_ARG ]; then
 	elif [ -f $DOCS_TO_PUBLISH_ARG ]; then
 		DOCS_TO_PUBLISH=$DOCS_TO_PUBLISH_ARG
 	else
-		echo "What is this? $DOCS_TO_PUBLISH_ARG" >&2 && exit 1
+		echo "What is this? $DOCS_TO_PUBLISH_ARG" >&2 && exit 3
 	fi
 else
 	cd $(dirname $0)
@@ -51,11 +51,11 @@ for i in $DOCS_TO_PUBLISH/$MD_WILDCARD; do
 		DIV_INJECT_CLOSE_PATTERN="</body>"
 		DIV_INJECT_CLOSE="</div>$DIV_INJECT_CLOSE_PATTERN"
 
-		START_STYLE=$(($(awk '/<style>.markdown/{ print NR; exit }' $HTM_FILE)+1))
+		START_STYLE=$(awk '/<style>/{ print NR; exit }' $HTM_FILE)
 		END_STYLE=$(awk '/<\/style>/{ print NR; exit }' $HTM_FILE)
 		if [ $START_STYLE -gt 1 ]; then
 			sed -i "${START_STYLE},${END_STYLE}d" $HTM_FILE
-			sed -i "s~<style>.*~$STYLE~" $HTM_FILE
+			sed -i "s~</head>.*~    $STYLE\n  </head>~" $HTM_FILE
 			sed -i "s~${DIV_INJECT_OPEN_PATTERN}~${DIV_INJECT_OPEN}~" $HTM_FILE
 			sed -i "s~${DIV_INJECT_CLOSE_PATTERN}~${DIV_INJECT_CLOSE}~" $HTM_FILE
 		fi
@@ -78,5 +78,5 @@ if [ -r ${PUBLISH_EXECUTABLE/.sh/.conf} ]; then
 	exit $?
 else
 	echo Auto publishing not available due to missing publishing configuration file.
-	exit 2
+	exit 0
 fi
