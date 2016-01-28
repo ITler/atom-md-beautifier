@@ -15,7 +15,6 @@ To only select individual files for beautifing and publishing create a sub-direc
 ## Caveats
 * tool collection sparely tested - it does what I need it for
 * documentation of features not complete
-* Running beautifier multiple times leads to creation of multiple `<div>` layers. This is ugly, but seem to have no consequences for HTML presentation.
 
 ## Credits
 Style definitions are taken from https://gist.github.com/evertton/4133083.

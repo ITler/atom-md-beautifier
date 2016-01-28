@@ -56,6 +56,8 @@ for i in $DOCS_TO_PUBLISH/$MD_WILDCARD; do
 		if [ $START_STYLE -gt 1 ]; then
 			sed -i "${START_STYLE},${END_STYLE}d" $HTM_FILE
 			sed -i "s~</head>.*~    $STYLE\n  </head>~" $HTM_FILE
+			sed -i "s~${DIV_INJECT_OPEN}~${DIV_INJECT_OPEN_PATTERN}~" $HTM_FILE
+			sed -i "s~${DIV_INJECT_CLOSE}~${DIV_INJECT_CLOSE_PATTERN}~" $HTM_FILE
 			sed -i "s~${DIV_INJECT_OPEN_PATTERN}~${DIV_INJECT_OPEN}~" $HTM_FILE
 			sed -i "s~${DIV_INJECT_CLOSE_PATTERN}~${DIV_INJECT_CLOSE}~" $HTM_FILE
 		fi
