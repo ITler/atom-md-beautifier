@@ -7,6 +7,7 @@ else
 	source ${0/.sh/.conf}
 fi
 DOCS_TO_PUBLISH_ARG=${1:-$DOCS_TO_PUBLISH_DEFAULT}
+MD_WILDCARD="*.${MD_SUFFIX}"
 
 ORIGIN_PATH=$(pwd)
 if [ -r $DOCS_TO_PUBLISH_ARG ]; then
@@ -35,7 +36,7 @@ fi
 HOME_PATH=$(pwd)
 
 for i in $DOCS_TO_PUBLISH/$MD_WILDCARD; do
-	HTML_FILE=$(basename $i.html)
+	HTML_FILE=$(basename $i.$EXPORT_FILE_SUFFIX)
 	HTM_FILE=$HTML_FILE
 	if [ -w $HTML_FILE ]; then
 		if [ $MODE == 'dev' ]; then
