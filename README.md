@@ -12,6 +12,10 @@ Calling `beautify_atom_markdown.sh`
 If beautifier is working in a directory with multiple markdown files, it tries to beautify (and publish) all of these files.
 To only select individual files for beautifing and publishing create a sub-directory within the target directory (defaulting to `publish`) and symlink the desired individual *markdown* files. (Do not symlink HTML exported files, as they won't be targeted for managing in SCM)
 
+### Resources
+External resources (e.g. videos, pdfs) relatively linked in markdown documents, can be placed in *resources root* (`./resources`).  
+When publishing a document (e.g. `foo.md`) all resources belonging to the document, which are contained in a sub-directory below *resources root* (e.g. `./resources/foo` directory or link) are rsyncd to target. To exclude files and folders below *resources root* from syncing, they have to match naming pattern `*.draft` or `.*`.
+
 ## Caveats
 * tool collection sparely tested - it does what I need it for
 * documentation of features not complete
