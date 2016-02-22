@@ -32,7 +32,7 @@ for i in $DOCS_TO_PUBLISH/$MD_WILDCARD; do
 	RESOURCES_DIR=$RESOURCES_ROOT/${SOURCE_FILE%.$MD_SUFFIX} # strip file extension from source file
 	if [ -r $RESOURCES_DIR ]; then
 		echo "additionally sync file's resources found in '${RESOURCES_DIR}'."
-		rsync -avz --delete --exclude '*.draft' --exclude '.*' $RESOURCES_DIR $COPY_TARGET/$RESOURCES_ROOT
+		rsync -aLvz --no-o --no-g --delete --exclude '*.draft' --exclude '.*' $RESOURCES_DIR $COPY_TARGET/$RESOURCES_ROOT
 	fi
 done
 
