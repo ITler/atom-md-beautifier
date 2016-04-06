@@ -16,6 +16,10 @@ To only select individual files for beautifing and publishing create a sub-direc
 External resources (e.g. videos, pdfs) relatively linked in markdown documents, can be placed in *resources root* (`./resources`).  
 When publishing a document (e.g. `foo.md`) all resources belonging to the document, which are contained in a sub-directory below *resources root* (e.g. `./resources/foo` directory or link) are rsyncd to target. To exclude files and folders below *resources root* from syncing, they have to match naming pattern `*.draft` or `.*`.
 
+### Project-specific configuration
+Next to global configuration, a project-specific configuration is available allowing to override global settings.
+Therefore place file named `.html-purify` in a folder and run _html-purify_ from that folder.
+
 ## Caveats
 * tool collection sparely tested - it does what I need it for
 * documentation of features not complete

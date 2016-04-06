@@ -1,7 +1,17 @@
 #!/bin/bash
 
-source $(dirname $0)/beautify_atom_markdown.conf
+PURIFY_EXEC=html-purify.sh
+LOCAL_CONF="$(pwd)/.${PURIFY_EXEC/.sh/}"
+PURIFY_CONF=''
+
+if [ -r $LOCAL_CONF ]; then
+	PURIFY_CONF=$LOCAL_CONF
+else
+  PURIFY_CONF=$(dirname $0)/html-purify.conf
+fi
+source $PURIFY_CONF
+
 
 # Adept to your needs and save to .conf file
-TARGET_CONNECTION=<publishing-user@example.com>
-TARGET_LOCATION_ROOT=</path/to/some/publishing/web-root/>
+TARGET_CONNECTION=${TARGET_CONNECTION:-'<publishing-user@example.com>'}
+TARGET_LOCATION_ROOT=${TARGET_LOCATION_ROOT:-'</path/to/some/publishing/web-root/>'}
