@@ -44,6 +44,9 @@ for i in $DOCS_TO_PUBLISH/$MD_WILDCARD; do
 		HTML_FILE=${SOURCE_FILE/$MD_SUFFIX/$EXPORT_FILE_SUFFIX}
 		if [ ! -r $HTML_FILE ]; then
 			cp $SOURCE_FILE $HTML_FILE
+		else
+			>&2 echo "File '${HTML_FILE}' already exists. Can't proceed. Manual review necessary (maybe delete file)."
+			exit 2
 		fi
 	fi
 	HTM_FILE=$HTML_FILE
