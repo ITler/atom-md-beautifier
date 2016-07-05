@@ -26,4 +26,4 @@ Therefore place file named `.html-purify` in a folder and run _html-purify_ from
 ## Credits
 Style definitions are taken from https://gist.github.com/evertton/4133083.
 
-Thanks you!
+Thank you!
