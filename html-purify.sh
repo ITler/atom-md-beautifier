@@ -82,8 +82,9 @@ fi
 
 echo Check created HTML files for convenience $HOME_PATH.
 if [ -r ${PUBLISH_EXECUTABLE/.sh/.conf} ]; then
-	echo Upload starts in 3 seconds.
-	sleep 3
+	secs=1
+	echo Upload starts in $secs seconds.
+	sleep $secs
 	$PUBLISH_EXECUTABLE $DOCS_TO_PUBLISH_ARG
 	exit $?
 else
