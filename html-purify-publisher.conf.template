@@ -5,9 +5,7 @@ LOCAL_CONF="$(pwd)/.${PURIFY_EXEC/.sh/}"
 PURIFY_CONF=''
 
 if [ -r $LOCAL_CONF ]; then
-	PURIFY_CONF=$LOCAL_CONF
-else
-  PURIFY_CONF=$(dirname $0)/html-purify.conf
+	source $LOCAL_CONF
 fi
 source $PURIFY_CONF
 
